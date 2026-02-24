@@ -98,11 +98,18 @@ while IFS= read -r domain || [ -n "$domain" ]; do
     echo ""
     echo "Running traceroute to $domain..."
     # Stream output live while also saving to temp file for parsing
+    # Use ICMP mode (-I) which often gets more responses from routers
     traceroute_tmp=$(mktemp)
-    traceroute -w 3 --max-hop=30 "$domain" 2>&1 | tee "$traceroute_tmp"
+    traceroute --icmp -w 3 --max-hop=30 "$domain" 2>&1 | tee "$traceroute_tmp"
 
     hop_ips=()
+    first_line=true
     while IFS= read -r line; do
+        # Skip the header line (e.g. "traceroute to example.com (1.2.3.4), 30 hops max")
+        if $first_line; then
+            first_line=false
+            continue
+        fi
         hop_ip=$(echo "$line" | grep -oP '\d+\.\d+\.\d+\.\d+' | head -1)
         if [[ -n "$hop_ip" ]] && ! [[ "$hop_ip" =~ ^(10\.|192\.168\.|172\.(1[6-9]|2[0-9]|3[01])\.) ]]; then
             hop_ips+=("$hop_ip")
