@@ -417,4 +417,963 @@ traceroute to Japan.go.jp (65.8.76.95), 30 hops max
  13   *  *  * 
  14   *  *  * 
  15   *  *  * 
- 16   * 
+ 16   * Networking Practical Session 1
+-----------------------------
+
+Getting current location...
+Origin detected: Colombo (6.9394, 79.8476)
+-------------------------------------------
+
+-----------------------------
+Scanning www.ruh.ac.lk...
+-----------------------------
+
+Resolved www.ruh.ac.lk -> 192.248.48.3
+Location: Galle (6.0336, 80.2197)
+-----------------------------
+
+Pinging www.ruh.ac.lk...
+Ping failed.
+-----------------------------
+
+   [!] Python Calculation Error: could not convert string to float: ''
+
+Running traceroute to www.ruh.ac.lk...
+traceroute to alpha.ruh.ac.lk (192.248.48.3), 30 hops max
+  1   172.24.153.224  5.092ms  4.904ms  4.595ms 
+  2   *  *  * 
+  3   172.19.92.201  43.250ms  28.279ms  33.595ms 
+  4   *  *  * 
+  5   172.22.65.90  318.597ms  79.071ms  82.074ms 
+  6   27.111.228.17  93.217ms  100.805ms  62.376ms 
+  7   194.170.186.14  129.437ms  132.454ms  148.489ms 
+  8   5.195.70.165  177.916ms  167.644ms  162.109ms 
+  9   195.229.27.82  300.499ms  378.035ms  283.749ms 
+ 10   125.214.191.39  224.828ms  170.012ms  138.195ms 
+ 11   *  *  * 
+ 12   *  *  * 
+ 13   192.248.48.250  141.722ms  304.767ms  152.279ms 
+ 14   *  *  * 
+ 15   *  *  * 
+ 16   *  *  * 
+ 17   *  *  * 
+ 18   *  *  * 
+ 19   *  *  * 
+ 20   *  *  * 
+ 21   *  *  * 
+ 22   *  *  * 
+ 23   *  *  * 
+ 24   *  *  * 
+ 25   *  *  * 
+ 26   *  *  * 
+ 27   *  *  * 
+ 28   *  172.24.153.224  72.424ms !N  2.025ms !N 
+
+Physical Path Mapping:
+-----------------------------
+Hop | IP Address       | City             | Country          | ISP
+----|------------------|------------------|------------------|--------------------
+1   | 27.111.228.17    | Unknown          | Unknown          | Unknown
+2   | 194.170.186.14   | Unknown          | Unknown          | Unknown
+3   | 5.195.70.165     | Unknown          | Unknown          | Unknown
+4   | 195.229.27.82    | Unknown          | Unknown          | Unknown
+5   | 125.214.191.39   | Unknown          | Unknown          | Unknown
+6   | 192.248.48.250   | Unknown          | Unknown          | Unknown
+
+Route: Colombo --> [6 hops] --> Galle
+   Route map saved to: route_maps/route_www.ruh.ac.lk.html
+
+-----------------------------
+Finished scanning www.ruh.ac.lk.
+Waiting before next scan...
+-----------------------------
+Scanning www.uoregon.edu...
+-----------------------------
+
+Resolved www.uoregon.edu -> 23.185.0.3
+Location: San Francisco (37.7922, -122.406)
+-----------------------------
+
+Pinging www.uoregon.edu...
+Ping successful!
+4 packets transmitted, 4 received, 0% packet loss, time 3041ms
+rtt min/avg/max/mdev = 74.830/916.904/1596.569/544.503 ms, pipe 2
+-----------------------------
+
+   [+] Origin:          Colombo
+   [+] Destination:     San Francisco, United States
+   [+] Coordinates:     37.7922, -122.406
+   [+] Distance:        14532.21 km
+   ------------------------------------------------
+   [+] Theoretical RTT: 145.32 ms
+   [+] Measured Ping:   916.90 ms
+
+Running traceroute to www.uoregon.edu...
+traceroute to www.uoregon.edu (23.185.0.3), 30 hops max
+  1   172.24.153.224  3.704ms  4.088ms  3.930ms 
+  2   10.30.106.225  908.063ms  792.912ms  804.567ms 
+  3   10.1.1.178  661.382ms  755.856ms  1040.391ms 
+  4   10.1.1.98  471.283ms  255.936ms  195.028ms 
+  5   103.21.167.2  196.689ms  334.572ms  424.958ms 
+  6   103.87.125.41  39.760ms  33.478ms  53.439ms 
+  7   103.87.124.133  76.459ms  78.253ms  59.785ms 
+  8   103.87.124.206  76.555ms  65.088ms  77.502ms 
+  9   103.87.124.125  426.109ms  410.911ms  408.591ms 
+ 10   23.185.0.3  67.987ms  117.572ms  318.456ms 
+
+Physical Path Mapping:
+-----------------------------
+Hop | IP Address       | City             | Country          | ISP
+----|------------------|------------------|------------------|--------------------
+1   | 103.21.167.2     | Colombo          | Sri Lanka        | Hutchison Telecommunications Lanka (Private) Limited
+2   | 103.87.125.41    | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+3   | 103.87.124.133   | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+4   | 103.87.124.206   | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+5   | 103.87.124.125   | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+6   | 23.185.0.3       | San Francisco    | United States    | Fastly, Inc.
+
+Route: Colombo --> [6 hops] --> San Francisco
+   Route map saved to: route_maps/route_www.uoregon.edu.html
+
+-----------------------------
+Finished scanning www.uoregon.edu.
+Waiting before next scan...
+-----------------------------
+Scanning www.keio.ac.jp...
+-----------------------------
+
+Resolved www.keio.ac.jp -> 23.54.118.46
+Location: Singapore (1.35208, 103.82)
+-----------------------------
+
+Pinging www.keio.ac.jp...
+Ping successful!
+4 packets transmitted, 4 received, 0% packet loss, time 3002ms
+rtt min/avg/max/mdev = 213.700/511.426/815.698/213.560 ms
+-----------------------------
+
+   [+] Origin:          Colombo
+   [+] Destination:     Singapore, Singapore
+   [+] Coordinates:     1.35208, 103.82
+   [+] Distance:        2729.12 km
+   ------------------------------------------------
+   [+] Theoretical RTT: 27.29 ms
+   [+] Measured Ping:   511.43 ms
+
+Running traceroute to www.keio.ac.jp...
+traceroute to e100342.dscb.akamaiedge.net (23.54.118.48), 30 hops max
+  1   172.24.153.224  6.381ms  3.120ms  4.018ms 
+  2   10.30.106.225  348.964ms  545.047ms  914.806ms 
+  3   10.1.1.178  621.503ms  162.627ms  81.273ms 
+  4   10.1.1.98  24.686ms  68.272ms  30.903ms 
+  5   103.21.167.2  181.695ms  25.245ms  57.071ms 
+  6   103.87.125.41  32.535ms  62.666ms  91.220ms 
+  7   103.87.124.133  64.410ms  70.279ms  78.264ms 
+  8   103.87.124.198  87.480ms  64.538ms  59.432ms 
+  9   *  *  * 
+ 10   23.54.79.24  90.004ms  66.679ms  96.587ms 
+ 11   23.54.79.17  167.751ms  187.495ms  121.933ms 
+ 12   23.54.79.4  58.061ms  60.596ms  68.467ms 
+ 13   23.54.118.33  60.442ms  54.946ms  385.575ms 
+ 14   23.54.118.48  94.116ms  60.029ms  65.042ms 
+
+Physical Path Mapping:
+-----------------------------
+Hop | IP Address       | City             | Country          | ISP
+----|------------------|------------------|------------------|--------------------
+1   | 103.21.167.2     | Colombo          | Sri Lanka        | Hutchison Telecommunications Lanka (Private) Limited
+2   | 103.87.125.41    | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+3   | 103.87.124.133   | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+4   | 103.87.124.198   | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+5   | 23.54.79.24      | Singapore        | Singapore        | Akamai International B.V.
+6   | 23.54.79.17      | Singapore        | Singapore        | Akamai International B.V.
+7   | 23.54.79.4       | Singapore        | Singapore        | Akamai International B.V.
+8   | 23.54.118.33     | Singapore        | Singapore        | Akamai International, BV
+9   | 23.54.118.48     | Singapore        | Singapore        | Akamai International, BV
+
+Route: Colombo --> [9 hops] --> Singapore
+   Route map saved to: route_maps/route_www.keio.ac.jp.html
+
+-----------------------------
+Finished scanning www.keio.ac.jp.
+Waiting before next scan...
+-----------------------------
+Scanning Japan.go.jp...
+-----------------------------
+
+Resolved Japan.go.jp -> 108.159.15.28
+Location: Singapore (1.35208, 103.82)
+-----------------------------
+
+Pinging Japan.go.jp...
+Ping successful!
+4 packets transmitted, 4 received, 0% packet loss, time 3003ms
+rtt min/avg/max/mdev = 39.056/78.891/169.716/53.689 ms
+-----------------------------
+
+   [+] Origin:          Colombo
+   [+] Destination:     Singapore, Singapore
+   [+] Coordinates:     1.35208, 103.82
+   [+] Distance:        2729.12 km
+   ------------------------------------------------
+   [+] Theoretical RTT: 27.29 ms
+   [+] Measured Ping:   78.89 ms
+
+Running traceroute to Japan.go.jp...
+traceroute to Japan.go.jp (108.159.15.127), 30 hops max
+  1   172.24.153.224  5.201ms  3.015ms  3.555ms 
+  2   10.30.106.225  61.732ms  32.190ms  32.752ms 
+  3   10.1.1.178  36.160ms  32.941ms  34.121ms 
+  4   10.1.1.98  37.761ms  37.850ms  27.643ms 
+  5   103.21.167.2  31.526ms  23.109ms  22.654ms 
+  6   103.87.125.41  45.002ms  31.573ms  39.136ms 
+  7   103.87.124.93  54.151ms  57.665ms  52.165ms 
+  8   103.87.124.58  85.105ms  44.901ms  47.027ms 
+  9   *  *  * 
+ 10   *  *  * 
+ 11   *  *  * 
+ 12   *  *  * 
+ 13   15.230.133.21  2703.392ms  2150.528ms  1740.885ms 
+ 14   108.159.15.127  708.661ms  59.102ms  60.273ms 
+
+Physical Path Mapping:
+-----------------------------
+Hop | IP Address       | City             | Country          | ISP
+----|------------------|------------------|------------------|--------------------
+1   | 103.21.167.2     | Colombo          | Sri Lanka        | Hutchison Telecommunications Lanka (Private) Limited
+2   | 103.87.125.41    | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+3   | 103.87.124.93    | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+4   | 103.87.124.58    | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+5   | 15.230.133.21    | Singapore        | Singapore        | Amazon Technologies Inc
+6   | 108.159.15.127   | Singapore        | Singapore        | Amazon.com, Inc.
+
+Route: Colombo --> [6 hops] --> Singapore
+   Route map saved to: route_maps/route_Japan.go.jp.html
+
+-----------------------------
+Finished scanning Japan.go.jp.
+Waiting before next scan...
+-----------------------------
+Scanning nsf.gov...
+-----------------------------
+
+Resolved nsf.gov -> 127.0.0.53
+Warning: Could not geolocate nsf.gov. Skipping...
+-----------------------------
+
+-----------------------------
+Scanning www.cam.ac.uk...
+-----------------------------
+
+Resolved www.cam.ac.uk -> 23.185.0.3
+Location: San Francisco (37.7922, -122.406)
+-----------------------------
+
+Pinging www.cam.ac.uk...
+Ping successful!
+4 packets transmitted, 3 received, 25% packet loss, time 3001ms
+rtt min/avg/max/mdev = 274.900/398.749/608.021/148.806 ms
+-----------------------------
+
+   [+] Origin:          Colombo
+   [+] Destination:     San Francisco, United States
+   [+] Coordinates:     37.7922, -122.406
+   [+] Distance:        14532.21 km
+   ------------------------------------------------
+   [+] Theoretical RTT: 145.32 ms
+   [+] Measured Ping:   398.75 ms
+
+Running traceroute to www.cam.ac.uk...
+traceroute to www.cam.ac.uk (23.185.0.3), 30 hops max
+  1   172.24.153.224  1.954ms  3.681ms  2.569ms 
+  2   10.30.106.225  125.857ms  59.443ms  71.764ms 
+  3   10.1.1.178  51.800ms  51.698ms  54.486ms 
+  4   10.1.1.98  34.355ms  89.773ms  599.239ms 
+  5   103.21.167.2  616.690ms  848.221ms  * 
+  6   103.87.125.41  2664.072ms  2815.065ms  274.127ms 
+  7   103.87.124.133  68.164ms  65.260ms  73.739ms 
+  8   103.87.124.206  96.537ms  265.377ms  78.402ms 
+  9   103.87.124.125  231.046ms  246.866ms  246.420ms 
+ 10   23.185.0.3  228.841ms  71.459ms  72.646ms 
+
+Physical Path Mapping:
+-----------------------------
+Hop | IP Address       | City             | Country          | ISP
+----|------------------|------------------|------------------|--------------------
+1   | 103.21.167.2     | Colombo          | Sri Lanka        | Hutchison Telecommunications Lanka (Private) Limited
+2   | 103.87.125.41    | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+3   | 103.87.124.133   | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+4   | 103.87.124.206   | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+5   | 103.87.124.125   | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+6   | 23.185.0.3       | San Francisco    | United States    | Fastly, Inc.
+
+Route: Colombo --> [6 hops] --> San Francisco
+   Route map saved to: route_maps/route_www.cam.ac.uk.html
+
+-----------------------------
+Finished scanning www.cam.ac.uk.
+Waiting before next scan...
+-----------------------------
+Scanning www5.usp.br...
+-----------------------------
+
+Resolved www5.usp.br -> 200.144.235.134
+Location: Ribeirão Preto (-21.2244, -47.8239)
+-----------------------------
+
+Pinging www5.usp.br...
+Ping failed.
+-----------------------------
+
+   [!] Python Calculation Error: could not convert string to float: ''
+
+Running traceroute to www5.usp.br...
+traceroute to www5.usp.br (200.144.235.134), 30 hops max
+  1   172.24.153.224  4.507ms  4.473ms  4.673ms 
+  2   10.30.106.225  137.233ms  37.362ms  30.764ms 
+  3   10.1.1.178  27.991ms  30.387ms  22.359ms 
+  4   10.1.1.98  26.915ms  29.655ms  37.158ms 
+  5   103.21.167.2  21.944ms  162.322ms  532.568ms 
+  6   103.87.125.41  37.135ms  47.991ms  31.313ms 
+  7   103.87.124.93  149.048ms  247.381ms  146.678ms 
+  8   103.87.124.46  194.525ms  272.259ms  153.037ms 
+  9   62.115.49.125  210.986ms  250.549ms  306.927ms 
+ 10   94.142.107.214  182.106ms  201.197ms  742.840ms 
+ 11   213.140.38.237  615.498ms  192.852ms  318.382ms 
+ 12   94.142.127.10  408.550ms  512.263ms  374.109ms 
+ 13   *  94.142.99.149  411.902ms  408.853ms 
+ 14   94.142.99.160  920.331ms  512.334ms  401.806ms 
+ 15   *  *  * 
+ 16   *  *  * 
+ 17   *  *  * 
+ 18   143.107.251.66  475.568ms  615.178ms  512.514ms 
+ 19   *  *  * 
+ 20   *  *  * 
+ 21   *  *  * 
+ 22   *  *  * 
+ 23   *  *  * 
+ 24   *  *  * 
+ 25   *  *  * 
+ 26   *  *  * 
+ 27   *  *  * 
+ 28   *  *  * 
+ 29   *  *  * 
+ 30   *  *  * 
+
+Physical Path Mapping:
+-----------------------------
+Hop | IP Address       | City             | Country          | ISP
+----|------------------|------------------|------------------|--------------------
+1   | 103.21.167.2     | Colombo          | Sri Lanka        | Hutchison Telecommunications Lanka (Private) Limited
+2   | 103.87.125.41    | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+3   | 103.87.124.93    | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+4   | 103.87.124.46    | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+5   | 62.115.49.125    | Paris            | France           | TELIANET
+6   | 94.142.107.214   | Madrid           | Spain            | Telefonica Global Solutions SL
+7   | 213.140.38.237   | Madrid           | Spain            | Telefonica International Wholesale Network
+8   | 94.142.127.10    | Madrid           | Spain            | Telefonica Global Solutions SL
+9   | 94.142.99.149    | Madrid           | Spain            | Telefonica Global Solutions SL
+10  | 94.142.99.160    | Madrid           | Spain            | Telefonica Global Solutions SL
+11  | 143.107.251.66   | São Paulo       | Brazil           | Universidade De SAO Paulo
+
+Route: Colombo --> [11 hops] --> Ribeirão Preto
+   Route map saved to: route_maps/route_www5.usp.br.html
+
+-----------------------------
+Finished scanning www5.usp.br.
+Waiting before next scan...
+-----------------------------
+Scanning www.unimelb.edu.au...
+-----------------------------
+
+Resolved www.unimelb.edu.au -> 2.58.104.11
+Location: Sydney (-33.8688, 151.209)
+-----------------------------
+
+Pinging www.unimelb.edu.au...
+Ping successful!
+4 packets transmitted, 4 received, 0% packet loss, time 3002ms
+rtt min/avg/max/mdev = 227.984/278.470/399.054/70.072 ms
+-----------------------------
+
+   [+] Origin:          Colombo
+   [+] Destination:     Sydney, Australia
+   [+] Coordinates:     -33.8688, 151.209
+   [+] Distance:        8750.10 km
+   ------------------------------------------------
+   [+] Theoretical RTT: 87.50 ms
+   [+] Measured Ping:   278.47 ms
+
+Running traceroute to www.unimelb.edu.au...
+traceroute to uom-web02.uom-7329.saas.squiz.cloud (2.58.104.11), 30 hops max
+  1   172.24.153.224  3.603ms  3.446ms  4.587ms 
+  2   10.30.106.225  36.728ms  31.654ms  23.614ms 
+  3   10.1.1.178  29.966ms  32.196ms  23.911ms 
+  4   10.1.1.98  30.886ms  51.899ms  30.990ms 
+  5   103.21.167.2  31.340ms  58.878ms  51.757ms 
+  6   103.87.125.41  30.892ms  37.485ms  37.591ms 
+  7   103.87.124.93  135.051ms  204.480ms  146.750ms 
+  8   103.87.124.46  192.133ms  272.740ms  159.425ms 
+  9   80.249.210.118  233.514ms  *  292.686ms 
+ 10   141.101.65.109  227.196ms  282.296ms  307.684ms 
+ 11   2.58.104.11  239.005ms  241.160ms  244.118ms 
+
+Physical Path Mapping:
+-----------------------------
+Hop | IP Address       | City             | Country          | ISP
+----|------------------|------------------|------------------|--------------------
+1   | 103.21.167.2     | Colombo          | Sri Lanka        | Hutchison Telecommunications Lanka (Private) Limited
+2   | 103.87.125.41    | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+3   | 103.87.124.93    | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+4   | 103.87.124.46    | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+5   | 80.249.210.118   | Amsterdam        | The Netherlands  | AMS-IX Amsterdam Peering (ISP) LAN
+6   | 141.101.65.109   | Amsterdam        | Netherlands      | Cloudflare, Inc.
+7   | 2.58.104.11      | Sydney           | Australia        | Squiz Pty Ltd
+
+Route: Colombo --> [7 hops] --> Sydney
+   Route map saved to: route_maps/route_www.unimelb.edu.au.html
+
+-----------------------------
+Finished scanning www.unimelb.edu.au.
+Waiting before next scan...
+
+   ANALYSIS COMPLETE
+   Results saved to: scan_results.txt
+   Route maps saved to: route_maps/
+Networking Practical Session 1
+-----------------------------
+
+Getting current location...
+Origin detected: Pannipitiya (6.8491, 79.9396)
+-------------------------------------------
+
+-----------------------------
+Scanning www.ruh.ac.lk...
+-----------------------------
+
+Resolved www.ruh.ac.lk -> 192.248.48.3
+Location: Galle (6.0336, 80.2197)
+-----------------------------
+
+Pinging www.ruh.ac.lk...
+Ping failed.
+-----------------------------
+
+   [!] Python Calculation Error: could not convert string to float: ''
+
+Running traceroute to www.ruh.ac.lk...
+traceroute to alpha.ruh.ac.lk (192.248.48.3), 30 hops max
+  1   172.24.153.224  63.733ms  4.478ms  4.406ms 
+  2   10.30.106.225  70.465ms  28.145ms  30.557ms 
+  3   10.1.1.178  27.262ms  30.966ms  28.696ms 
+  4   10.1.1.98  28.708ms  39.885ms  20.808ms 
+  5   103.21.167.2  30.965ms  29.400ms  31.495ms 
+  6   103.27.170.225  75.056ms  78.111ms  68.767ms 
+  7   223.224.19.3  96.766ms  106.043ms  109.866ms 
+  8   125.214.191.39  99.934ms  101.615ms  103.936ms 
+  9   *  *  * 
+ 10   *  *  * 
+ 11   192.248.48.250  151.671ms  172.791ms  73.283ms 
+ 12   *  *  * 
+ 13   *  *  * 
+ 14   *  *  * 
+ 15   *  *  * 
+ 16   *  *  * 
+ 17   *  *  * 
+ 18   *  *  * 
+ 19   *  *  * 
+ 20   *  *  * 
+ 21   *  *  * 
+ 22   *  *  * 
+ 23   *  *  * 
+ 24   *  *  * 
+ 25   *  *  * 
+ 26   *  *  * 
+ 27   *  *  * 
+ 28   *  *  * 
+ 29   *  *  * 
+ 30   *  *  * 
+
+Physical Path Mapping:
+-----------------------------
+Hop | IP Address       | City             | Country          | ISP
+----|------------------|------------------|------------------|--------------------
+1   | 103.21.167.2     | Colombo          | Sri Lanka        | Hutchison Telecommunications Lanka (Private) Limited
+2   | 103.27.170.225   | Navi Mumbai      | India            | INTERWIRE
+3   | 223.224.19.3     | Colombo          | Sri Lanka        | Airtel ISP
+4   | 125.214.191.39   | Colombo          | Sri Lanka        | Dialog Axiata Plc
+5   | 192.248.48.250   | Galle            | Sri Lanka        | Lanka Education and Research Network
+
+Route: Pannipitiya --> [5 hops] --> Galle
+   Route map saved to: route_maps/route_www.ruh.ac.lk.html
+
+-----------------------------
+Finished scanning www.ruh.ac.lk.
+Waiting before next scan...
+-----------------------------
+Scanning www.uoregon.edu...
+-----------------------------
+
+Resolved www.uoregon.edu -> 23.185.0.3
+Location: San Francisco (37.7922, -122.406)
+-----------------------------
+
+Pinging www.uoregon.edu...
+Ping successful!
+4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+rtt min/avg/max/mdev = 63.163/109.307/154.473/42.163 ms
+-----------------------------
+
+   [+] Origin:          Pannipitiya
+   [+] Destination:     San Francisco, United States
+   [+] Coordinates:     37.7922, -122.406
+   [+] Distance:        14537.41 km
+   ------------------------------------------------
+   [+] Theoretical RTT: 145.37 ms
+   [+] Measured Ping:   109.31 ms
+
+Running traceroute to www.uoregon.edu...
+traceroute to www.uoregon.edu (23.185.0.3), 30 hops max
+  1   172.24.153.224  5.249ms  3.039ms  4.763ms 
+  2   10.30.106.225  37.130ms  36.248ms  40.983ms 
+  3   10.1.1.178  36.474ms  25.602ms  28.335ms 
+  4   10.1.1.98  21.203ms  24.371ms  31.055ms 
+  5   103.21.167.2  26.999ms  21.656ms  35.722ms 
+  6   103.87.125.41  32.379ms  38.337ms  22.208ms 
+  7   103.87.124.133  66.954ms  57.123ms  60.118ms 
+  8   103.87.124.206  67.648ms  63.985ms  74.978ms 
+  9   103.87.124.125  237.766ms  *  452.176ms 
+ 10   23.185.0.3  71.015ms  167.815ms  70.791ms 
+
+Physical Path Mapping:
+-----------------------------
+Hop | IP Address       | City             | Country          | ISP
+----|------------------|------------------|------------------|--------------------
+1   | 103.21.167.2     | Colombo          | Sri Lanka        | Hutchison Telecommunications Lanka (Private) Limited
+2   | 103.87.125.41    | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+3   | 103.87.124.133   | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+4   | 103.87.124.206   | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+5   | 103.87.124.125   | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+6   | 23.185.0.3       | San Francisco    | United States    | Fastly, Inc.
+
+Route: Pannipitiya --> [6 hops] --> San Francisco
+   Route map saved to: route_maps/route_www.uoregon.edu.html
+
+-----------------------------
+Finished scanning www.uoregon.edu.
+Waiting before next scan...
+-----------------------------
+Scanning www.keio.ac.jp...
+-----------------------------
+
+Resolved www.keio.ac.jp -> 23.54.118.48
+Location: Singapore (1.35208, 103.82)
+-----------------------------
+
+Pinging www.keio.ac.jp...
+Ping successful!
+4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+rtt min/avg/max/mdev = 68.772/92.337/147.499/32.239 ms
+-----------------------------
+
+   [+] Origin:          Pannipitiya
+   [+] Destination:     Singapore, Singapore
+   [+] Coordinates:     1.35208, 103.82
+   [+] Distance:        2717.09 km
+   ------------------------------------------------
+   [+] Theoretical RTT: 27.17 ms
+   [+] Measured Ping:   92.34 ms
+
+Running traceroute to www.keio.ac.jp...
+traceroute to e100342.dscb.akamaiedge.net (23.54.118.46), 30 hops max
+  1   172.24.153.224  4.827ms  4.691ms  5.027ms 
+  2   10.30.106.225  33.573ms  22.962ms  25.628ms 
+  3   10.1.1.178  29.345ms  28.780ms  31.198ms 
+  4   10.1.1.98  30.262ms  30.350ms  28.161ms 
+  5   103.21.167.2  30.835ms  29.574ms  29.886ms 
+  6   103.87.125.41  30.426ms  30.976ms  29.404ms 
+  7   103.87.124.93  69.720ms  69.600ms  61.180ms 
+  8   103.87.124.70  79.355ms  62.903ms  63.557ms 
+  9   27.111.228.250  2990.921ms  *  * 
+ 10   23.54.79.23  114.739ms  119.567ms  90.689ms 
+ 11   23.54.79.11  74.540ms  65.280ms  58.108ms 
+ 12   23.54.79.3  70.807ms  68.244ms  64.809ms 
+ 13   23.54.118.33  75.017ms  56.662ms  57.190ms 
+ 14   23.54.118.46  70.665ms  71.441ms  81.917ms 
+
+Physical Path Mapping:
+-----------------------------
+Hop | IP Address       | City             | Country          | ISP
+----|------------------|------------------|------------------|--------------------
+1   | 103.21.167.2     | Colombo          | Sri Lanka        | Hutchison Telecommunications Lanka (Private) Limited
+2   | 103.87.125.41    | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+3   | 103.87.124.93    | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+4   | 103.87.124.70    | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+5   | 27.111.228.250   | Orchard Hills    | Australia        | Equinix Singapore Pte Ltd
+6   | 23.54.79.23      | Singapore        | Singapore        | Akamai International B.V.
+7   | 23.54.79.11      | Singapore        | Singapore        | Akamai International B.V.
+8   | 23.54.79.3       | Singapore        | Singapore        | Akamai International B.V.
+9   | 23.54.118.33     | Singapore        | Singapore        | Akamai International, BV
+10  | 23.54.118.46     | Singapore        | Singapore        | Akamai International, BV
+
+Route: Pannipitiya --> [10 hops] --> Singapore
+   Route map saved to: route_maps/route_www.keio.ac.jp.html
+
+-----------------------------
+Finished scanning www.keio.ac.jp.
+Waiting before next scan...
+-----------------------------
+Scanning Japan.go.jp...
+-----------------------------
+
+Resolved Japan.go.jp -> 108.159.15.7
+Location: Singapore (1.35208, 103.82)
+-----------------------------
+
+Pinging Japan.go.jp...
+Ping successful!
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 57.727/86.481/168.768/47.535 ms
+-----------------------------
+
+   [+] Origin:          Pannipitiya
+   [+] Destination:     Singapore, Singapore
+   [+] Coordinates:     1.35208, 103.82
+   [+] Distance:        2717.09 km
+   ------------------------------------------------
+   [+] Theoretical RTT: 27.17 ms
+   [+] Measured Ping:   86.48 ms
+
+Running traceroute to Japan.go.jp...
+traceroute to Japan.go.jp (108.159.15.7), 30 hops max
+  1   172.24.153.224  4.645ms  4.863ms  5.056ms 
+  2   10.30.106.225  39.481ms  28.885ms  41.111ms 
+  3   10.1.1.178  26.430ms  31.787ms  27.916ms 
+  4   10.1.1.98  30.570ms  41.033ms  30.146ms 
+  5   103.21.167.2  29.885ms  23.923ms  24.441ms 
+  6   103.87.125.41  33.386ms  27.517ms  38.945ms 
+  7   103.87.124.93  48.521ms  55.994ms  42.929ms 
+  8   103.87.124.58  53.944ms  43.240ms  39.948ms 
+  9   *  *  * 
+ 10   *  *  * 
+ 11   *  *  * 
+ 12   *  *  * 
+ 13   15.230.133.21  137.499ms  57.870ms  55.004ms 
+ 14   108.159.15.7  45.417ms  54.503ms  49.768ms 
+
+Physical Path Mapping:
+-----------------------------
+Hop | IP Address       | City             | Country          | ISP
+----|------------------|------------------|------------------|--------------------
+1   | 103.21.167.2     | Colombo          | Sri Lanka        | Hutchison Telecommunications Lanka (Private) Limited
+2   | 103.87.125.41    | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+3   | 103.87.124.93    | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+4   | 103.87.124.58    | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+5   | 15.230.133.21    | Singapore        | Singapore        | Amazon Technologies Inc
+6   | 108.159.15.7     | Singapore        | Singapore        | Amazon.com, Inc.
+
+Route: Pannipitiya --> [6 hops] --> Singapore
+   Route map saved to: route_maps/route_Japan.go.jp.html
+
+-----------------------------
+Finished scanning Japan.go.jp.
+Waiting before next scan...
+-----------------------------
+Scanning nsf.gov...
+-----------------------------
+
+Resolved nsf.gov -> 128.150.221.244
+Location: Alexandria (38.8016, -77.0704)
+-----------------------------
+
+Pinging nsf.gov...
+Ping failed.
+-----------------------------
+
+   [!] Python Calculation Error: could not convert string to float: ''
+
+Running traceroute to nsf.gov...
+traceroute to nsf.gov (128.150.221.244), 30 hops max
+  1   172.24.153.224  16.287ms  4.807ms  4.966ms 
+  2   10.30.106.225  96.402ms  25.622ms  37.858ms 
+  3   10.1.1.178  33.827ms  30.649ms  37.974ms 
+  4   10.1.1.98  44.257ms  35.304ms  40.489ms 
+  5   103.21.167.2  30.468ms  38.121ms  39.884ms 
+  6   103.87.125.41  33.760ms  36.258ms  29.400ms 
+  7   103.87.124.93  74.582ms  88.104ms  64.953ms 
+  8   103.87.124.70  77.167ms  80.963ms  65.892ms 
+  9   116.51.31.165  65.516ms  78.415ms  186.459ms 
+ 10   4.68.62.129  129.516ms  *  262.825ms 
+ 11   *  *  * 
+ 12   4.68.110.166  306.689ms  307.327ms  309.011ms 
+ 13   67.14.28.70  407.240ms  412.105ms  407.549ms 
+ 14   205.171.251.62  410.411ms  410.068ms  409.607ms 
+ 15   65.126.14.94  409.360ms  409.054ms  408.317ms 
+ 16   65.116.153.241  410.916ms  338.013ms  339.482ms 
+ 17   65.126.14.89  448.745ms  342.454ms  346.723ms 
+ 18   63.146.9.178  436.623ms  409.311ms  409.974ms 
+ 19   *  *  * 
+ 20   *  *  * 
+ 21   *  *  * 
+ 22   *  *  * 
+ 23   *  *  * 
+ 24   *  *  * 
+ 25   *  *  * 
+ 26   *  *  * 
+ 27   *  *  * 
+ 28   *  *  * 
+ 29   *  *  * 
+ 30   *  *  * 
+
+Physical Path Mapping:
+-----------------------------
+Hop | IP Address       | City             | Country          | ISP
+----|------------------|------------------|------------------|--------------------
+1   | 103.21.167.2     | Colombo          | Sri Lanka        | Hutchison Telecommunications Lanka (Private) Limited
+2   | 103.87.125.41    | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+3   | 103.87.124.93    | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+4   | 103.87.124.70    | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+5   | 116.51.31.165    | Singapore        | Singapore        | NTT Singapore Pte Ltd
+6   | 4.68.62.129      | Singapore        | Singapore        | Level 3 Communications, Inc.
+7   | 4.68.110.166     | Port Huron       | United States    | Level 3 Communications, Inc.
+8   | 67.14.28.70      | Dallas           | United States    | CenturyLink Communications, LLC
+9   | 205.171.251.62   | Reston           | United States    | CenturyLink Communications, LLC
+10  | 65.126.14.94     | Van Buren        | United States    | CenturyLink
+11  | 65.116.153.241   | Seattle          | United States    | CenturyLink Communications
+12  | 65.126.14.89     | Van Buren        | United States    | CenturyLink
+13  | 63.146.9.178     | Memphis          | United States    | CenturyLink
+
+Route: Pannipitiya --> [13 hops] --> Alexandria
+   Route map saved to: route_maps/route_nsf.gov.html
+
+-----------------------------
+Finished scanning nsf.gov.
+Waiting before next scan...
+-----------------------------
+Scanning www.cam.ac.uk...
+-----------------------------
+
+Resolved www.cam.ac.uk -> 23.185.0.3
+Location: San Francisco (37.7922, -122.406)
+-----------------------------
+
+Pinging www.cam.ac.uk...
+Ping successful!
+4 packets transmitted, 4 received, 0% packet loss, time 3007ms
+rtt min/avg/max/mdev = 71.572/118.453/163.637/41.797 ms
+-----------------------------
+
+   [+] Origin:          Pannipitiya
+   [+] Destination:     San Francisco, United States
+   [+] Coordinates:     37.7922, -122.406
+   [+] Distance:        14537.41 km
+   ------------------------------------------------
+   [+] Theoretical RTT: 145.37 ms
+   [+] Measured Ping:   118.45 ms
+
+Running traceroute to www.cam.ac.uk...
+traceroute to www.cam.ac.uk (23.185.0.3), 30 hops max
+  1   172.24.153.224  4.708ms  4.840ms  4.909ms 
+  2   10.30.106.225  45.759ms  29.702ms  38.501ms 
+  3   10.1.1.178  37.313ms  21.779ms  28.813ms 
+  4   10.1.1.98  21.971ms  31.536ms  25.963ms 
+  5   103.21.167.2  34.562ms  24.896ms  22.127ms 
+  6   103.87.125.41  29.831ms  33.398ms  31.169ms 
+  7   103.87.124.133  58.628ms  57.154ms  60.687ms 
+  8   103.87.124.206  67.081ms  63.532ms  64.009ms 
+  9   103.87.124.125  331.099ms  248.234ms  263.930ms 
+ 10   23.185.0.3  63.739ms  65.509ms  69.821ms 
+
+Physical Path Mapping:
+-----------------------------
+Hop | IP Address       | City             | Country          | ISP
+----|------------------|------------------|------------------|--------------------
+1   | 103.21.167.2     | Colombo          | Sri Lanka        | Hutchison Telecommunications Lanka (Private) Limited
+2   | 103.87.125.41    | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+3   | 103.87.124.133   | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+4   | 103.87.124.206   | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+5   | 103.87.124.125   | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+6   | 23.185.0.3       | San Francisco    | United States    | Fastly, Inc.
+
+Route: Pannipitiya --> [6 hops] --> San Francisco
+   Route map saved to: route_maps/route_www.cam.ac.uk.html
+
+-----------------------------
+Finished scanning www.cam.ac.uk.
+Waiting before next scan...
+-----------------------------
+Scanning www5.usp.br...
+-----------------------------
+
+Resolved www5.usp.br -> 200.144.235.134
+Location: Ribeirão Preto (-21.2244, -47.8239)
+-----------------------------
+
+Pinging www5.usp.br...
+Ping failed.
+-----------------------------
+
+   [!] Python Calculation Error: could not convert string to float: ''
+
+Running traceroute to www5.usp.br...
+traceroute to www5.usp.br (200.144.235.134), 30 hops max
+  1   172.24.153.224  3.063ms  2.016ms  4.507ms 
+  2   10.30.106.225  245.210ms  221.250ms  270.687ms 
+  3   10.1.1.178  316.961ms  264.507ms  238.864ms 
+  4   10.1.1.98  425.323ms  507.803ms  250.693ms 
+  5   103.21.167.2  431.970ms  654.684ms  294.363ms 
+  6   103.87.125.41  223.996ms  401.628ms  451.170ms 
+  7   103.87.124.93  304.986ms  527.669ms  367.955ms 
+  8   103.87.124.46  438.634ms  355.416ms  496.676ms 
+  9   62.115.49.125  402.909ms  413.847ms  432.590ms 
+ 10   94.142.107.214  503.709ms  416.889ms  421.062ms 
+ 11   213.140.38.237  562.180ms  409.167ms  374.642ms 
+ 12   94.142.127.10  579.088ms  729.069ms  587.332ms 
+ 13   94.142.99.149  737.990ms  893.672ms  908.132ms 
+ 14   94.142.99.160  1273.617ms  908.055ms  867.910ms 
+ 15   *  *  * 
+ 16   *  *  * 
+ 17   *  *  * 
+ 18   143.107.251.66  1010.755ms  2008.878ms  2328.781ms 
+ 19   *  *  * 
+ 20   *  *  * 
+ 21   *  *  * 
+ 22   *  *  * 
+ 23   *  *  * 
+ 24   *  *  * 
+ 25   *  *  * 
+ 26   *  *  * 
+ 27   *  *  * 
+ 28   *  *  * 
+ 29   *  *  * 
+ 30   *  *  * 
+
+Physical Path Mapping:
+-----------------------------
+Hop | IP Address       | City             | Country          | ISP
+----|------------------|------------------|------------------|--------------------
+1   | 103.21.167.2     | Colombo          | Sri Lanka        | Hutchison Telecommunications Lanka (Private) Limited
+2   | 103.87.125.41    | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+3   | 103.87.124.93    | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+4   | 103.87.124.46    | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+5   | 62.115.49.125    | Paris            | France           | TELIANET
+6   | 94.142.107.214   | Madrid           | Spain            | Telefonica Global Solutions SL
+7   | 213.140.38.237   | Madrid           | Spain            | Telefonica International Wholesale Network
+8   | 94.142.127.10    | Madrid           | Spain            | Telefonica Global Solutions SL
+9   | 94.142.99.149    | Madrid           | Spain            | Telefonica Global Solutions SL
+10  | 94.142.99.160    | Madrid           | Spain            | Telefonica Global Solutions SL
+11  | 143.107.251.66   | São Paulo       | Brazil           | Universidade De SAO Paulo
+
+Route: Pannipitiya --> [11 hops] --> Ribeirão Preto
+   Route map saved to: route_maps/route_www5.usp.br.html
+
+-----------------------------
+Finished scanning www5.usp.br.
+Waiting before next scan...
+-----------------------------
+Scanning www.unimelb.edu.au...
+-----------------------------
+
+Resolved www.unimelb.edu.au -> 2.58.104.11
+Location: Sydney (-33.8688, 151.209)
+-----------------------------
+
+Pinging www.unimelb.edu.au...
+Ping successful!
+4 packets transmitted, 4 received, 0% packet loss, time 3003ms
+rtt min/avg/max/mdev = 277.716/316.456/351.835/27.398 ms
+-----------------------------
+
+   [+] Origin:          Pannipitiya
+   [+] Destination:     Sydney, Australia
+   [+] Coordinates:     -33.8688, 151.209
+   [+] Distance:        8735.96 km
+   ------------------------------------------------
+   [+] Theoretical RTT: 87.36 ms
+   [+] Measured Ping:   316.46 ms
+
+Running traceroute to www.unimelb.edu.au...
+traceroute to uom-web02.uom-7329.saas.squiz.cloud (2.58.104.10), 30 hops max
+  1   172.24.153.224  4.818ms  4.975ms  5.055ms 
+  2   10.30.106.225  44.722ms  29.472ms  29.520ms 
+  3   10.1.1.178  24.921ms  30.925ms  28.742ms 
+  4   10.1.1.98  29.139ms  30.526ms  29.071ms 
+  5   103.21.167.2  32.981ms  27.444ms  31.094ms 
+  6   103.87.125.41  29.203ms  37.658ms  34.022ms 
+  7   103.87.124.133  176.749ms  308.667ms  179.315ms 
+  8   103.87.124.166  172.627ms  356.808ms  189.957ms 
+  9   80.249.210.118  327.785ms  233.718ms  219.690ms 
+ 10   141.101.65.139  264.072ms  307.707ms  307.097ms 
+ 11   2.58.104.10  306.498ms  306.425ms  308.301ms 
+
+Physical Path Mapping:
+-----------------------------
+Hop | IP Address       | City             | Country          | ISP
+----|------------------|------------------|------------------|--------------------
+1   | 103.21.167.2     | Colombo          | Sri Lanka        | Hutchison Telecommunications Lanka (Private) Limited
+2   | 103.87.125.41    | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+3   | 103.87.124.133   | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+4   | 103.87.124.166   | Colombo          | Sri Lanka        | Sri Lanka Telecom Ltd
+5   | 80.249.210.118   | Amsterdam        | The Netherlands  | AMS-IX Amsterdam Peering (ISP) LAN
+6   | 141.101.65.139   | Amsterdam        | Netherlands      | Cloudflare, Inc.
+7   | 2.58.104.10      | Sydney           | Australia        | Squiz Pty Ltd
+
+Route: Pannipitiya --> [7 hops] --> Sydney
+   Route map saved to: route_maps/route_www.unimelb.edu.au.html
+
+-----------------------------
+Finished scanning www.unimelb.edu.au.
+Waiting before next scan...
+./scanner.sh: line 180: syntax error near unexpected token `then'
+./scanner.sh: line 180: `f [[ -n "$hop_ip" ]] && ! [[ "$hop_ip" =~ ^(10\.|192\.168\.|172\.(1[6-9]|2[0-9]|3[01])\.) ]]; then'
+Networking Practical Session 1
+-----------------------------
+
+Packet capture started -> captures/scan_20260225_011944.pcap
+-----------------------------
+
+Getting current location...
+Origin detected: Pannipitiya (6.8491, 79.9396)
+-------------------------------------------
+
+-----------------------------
+Scanning www.ruh.ac.lk...
+-----------------------------
+
+Resolved www.ruh.ac.lk -> 192.248.48.3
+Location: Galle (6.0336, 80.2197)
+-----------------------------
+
+Fetching www.ruh.ac.lk (browser emulation)...
+      HTTP Code: 200
+   Redirect URL: 
+   Remote IP: 192.248.48.3:443
+   TLS Version: 0 (HTTPS)
+   Time DNS: 0.001120s
+   Time Connect: 0.075671s
+   Time TLS: 0.181447s
+   Time First Byte: 0.652265s
+   Time Total: 0.730513s
+   Bytes Downloaded: 25503
+-----------------------------
+
+Pinging www.ruh.ac.lk...
+Ping failed.
+-----------------------------
+
+   [!] Python Calculation Error: could not convert string to float: ''
+
+Running traceroute to www.ruh.ac.lk...
+traceroute to alpha.ruh.ac.lk (192.248.48.3), 20 hops max
+  1   172.24.153.224  126.169ms  1.644ms  5.432ms 
+  2   10.30.106.225  66.102ms  28.051ms  25.467ms 
+  3   10.1.1.178  35.537ms  28.620ms  30.167ms 
+  4   10.1.1.98  30.407ms  29.520ms  39.737ms 
+  5   103.21.167.2  30.320ms  29.934ms  32.286ms 
+  6   103.27.170.225  73.183ms  78.766ms  70.722ms 
+  7   223.224.19.3  102.004ms  107.372ms  107.219ms 
+  8   125.214.191.39  96.540ms  107.943ms  101.136ms 
+  9   *  *  * 
+ 10   *  *  * 
+ 11   192.248.48.250  289.231ms  169.949ms  207.830ms 
+ 12   * 

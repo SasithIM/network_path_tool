@@ -23,9 +23,24 @@ if ! command -v traceroute &> /dev/null; then
     sudo apt-get install -y traceroute
 fi
 
+if ! command -v tcpdump &> /dev/null; then
+    sudo apt-get update
+    sudo apt-get install -y tcpdump
+fi
 
-# Create maps output directory
+
+# Create output directories
 mkdir -p route_maps
+mkdir -p captures
+
+# --- Start single packet capture for entire scan ---
+PCAP_FILE="captures/scan_$(date +%Y%m%d_%H%M%S).pcap"
+sudo tcpdump -i any -w "$PCAP_FILE" -q 2>/dev/null &
+TCPDUMP_PID=$!
+sleep 1
+echo "Packet capture started -> $PCAP_FILE"
+echo "-----------------------------"
+echo ""
 
 echo "Getting current location..."
 MY_LOC_JSON=$(curl -s "http://ip-api.com/json/")
@@ -36,6 +51,7 @@ MY_LON=$(echo "$MY_LOC_JSON" | grep -oP '"lon":\K[0-9.\-]+')
 echo "Origin detected: $MY_CITY ($MY_LAT, $MY_LON)"
 echo "-------------------------------------------"
 echo ""
+sleep 2
 
 while IFS= read -r domain || [ -n "$domain" ]; do
     if [[ "$domain" == \#* ]] || [[ -z "$domain" ]]; then
@@ -77,6 +93,39 @@ while IFS= read -r domain || [ -n "$domain" ]; do
     echo "Location: $CITY ($DEST_LAT, $DEST_LON)"
     echo "-----------------------------"
     echo ""
+
+    # --- Browser-emulated HTTP request ---
+    echo "Fetching $domain (browser emulation)..."
+    curl_output=$(curl -s -o /dev/null -w \
+        "HTTP Code: %{http_code}\nRedirect URL: %{redirect_url}\nRemote IP: %{remote_ip}:%{remote_port}\nTLS Version: %{ssl_verify_result} (%{scheme})\nTime DNS: %{time_namelookup}s\nTime Connect: %{time_connect}s\nTime TLS: %{time_appconnect}s\nTime First Byte: %{time_starttransfer}s\nTime Total: %{time_total}s\nBytes Downloaded: %{size_download}" \
+        -L --max-time 15 --max-redirs 5 \
+        -H "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
+        -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" \
+        -H "Accept-Language: en-US,en;q=0.5" \
+        -H "Accept-Encoding: gzip, deflate, br" \
+        -H "Connection: keep-alive" \
+        -H "Upgrade-Insecure-Requests: 1" \
+        "https://$domain" 2>&1)
+
+    # If HTTPS fails, try HTTP
+    if echo "$curl_output" | grep -q "HTTP Code: 000"; then
+        echo "   HTTPS failed, trying HTTP..."
+        curl_output=$(curl -s -o /dev/null -w \
+            "HTTP Code: %{http_code}\nRedirect URL: %{redirect_url}\nRemote IP: %{remote_ip}:%{remote_port}\nTLS Version: %{ssl_verify_result} (%{scheme})\nTime DNS: %{time_namelookup}s\nTime Connect: %{time_connect}s\nTime TLS: %{time_appconnect}s\nTime First Byte: %{time_starttransfer}s\nTime Total: %{time_total}s\nBytes Downloaded: %{size_download}" \
+            -L --max-time 15 --max-redirs 5 \
+            -H "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
+            -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" \
+            -H "Accept-Language: en-US,en;q=0.5" \
+            -H "Accept-Encoding: gzip, deflate, br" \
+            -H "Connection: keep-alive" \
+            -H "Upgrade-Insecure-Requests: 1" \
+            "http://$domain" 2>&1)
+    fi
+
+    echo "   $curl_output" | sed 's/^/   /'
+    echo "-----------------------------"
+    echo ""
+
     echo "Pinging $domain..."
 
     ping_output=$(ping -c 4 "$domain" 2>&1)
@@ -98,9 +147,10 @@ while IFS= read -r domain || [ -n "$domain" ]; do
     echo ""
     echo "Running traceroute to $domain..."
     # Stream output live while also saving to temp file for parsing
-    # Use ICMP mode (-I) which often gets more responses from routers
+    # Use ICMP mode which often gets more responses from routers
+    # Only traceroute needs sudo (for raw sockets), not the whole script
     traceroute_tmp=$(mktemp)
-    traceroute --icmp -w 3 --max-hop=30 "$domain" 2>&1 | tee "$traceroute_tmp"
+    sudo traceroute --icmp -w 3 --max-hop=20 "$domain" 2>&1 | tee "$traceroute_tmp"
 
     hop_ips=()
     first_line=true
@@ -176,7 +226,19 @@ while IFS= read -r domain || [ -n "$domain" ]; do
 
 done < "$INPUT_FILE" 
 
+# --- Stop packet capture ---
+if [[ -n "$TCPDUMP_PID" ]] && kill -0 "$TCPDUMP_PID" 2>/dev/null; then
+    sudo kill "$TCPDUMP_PID" 2>/dev/null
+    wait "$TCPDUMP_PID" 2>/dev/null
+    sudo chown "$USER:$USER" "$PCAP_FILE" 2>/dev/null
+    pcap_size=$(du -h "$PCAP_FILE" 2>/dev/null | cut -f1)
+    echo ""
+    echo "   Packet capture saved: $PCAP_FILE ($pcap_size)"
+    echo "   Analyze with: tcpdump -r $PCAP_FILE | head -20"
+fi
+
 echo ""
 echo "   ANALYSIS COMPLETE"
 echo "   Results saved to: $LOG_FILE"
 echo "   Route maps saved to: route_maps/"
+echo "   Packet captures saved to: captures/"
