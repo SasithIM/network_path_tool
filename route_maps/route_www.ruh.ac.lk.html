@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Route Map: www.ruh.ac.lk</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        body { margin: 0; font-family: Arial, sans-serif; }
+        #map { height: 100vh; width: 100%; }
+        .info-panel {
+            position: absolute; top: 10px; right: 10px; z-index: 1000;
+            background: white; padding: 15px; border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3); max-width: 300px;
+        }
+        .info-panel h3 { margin: 0 0 8px 0; color: #333; }
+        .info-panel p { margin: 4px 0; font-size: 13px; color: #666; }
+        .legend { margin-top: 10px; }
+        .legend-item { display: flex; align-items: center; margin: 4px 0; font-size: 12px; }
+        .legend-dot { width: 12px; height: 12px; border-radius: 50%; margin-right: 8px; }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <div class="info-panel">
+        <h3>Route: www.ruh.ac.lk</h3>
+        <p><strong>From:</strong> Colombo</p>
+        <p><strong>To:</strong> Galle</p>
+        <p><strong>Hops:</strong> 6</p>
+        <div class="legend">
+            <div class="legend-item"><div class="legend-dot" style="background:#2ecc71;"></div> Origin</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#3498db;"></div> Router Hop</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#e74c3c;"></div> Destination</div>
+        </div>
+    </div>
+    <script>
+        var points = [{"lat": 6.9394, "lon": 79.8476, "label": "Origin", "popup": "Colombo (Origin)", "type": "start"}, {"lat": 6.0336, "lon": 80.2197, "label": "192.248.48.3", "popup": "Hop 1: 192.248.48.3<br>Galle, Sri Lanka<br>ISP: Lanka Education and Research Network", "type": "hop"}, {"lat": -33.7857, "lon": 150.7231, "label": "27.111.228.17", "popup": "Hop 2: 27.111.228.17<br>Orchard Hills, Australia<br>ISP: Equinix Singapore Pte Ltd", "type": "hop"}, {"lat": 25.0734, "lon": 55.2979, "label": "5.195.70.165", "popup": "Hop 3: 5.195.70.165<br>Dubai, United Arab Emirates<br>ISP: Emirates Telecommunications Corporation", "type": "hop"}, {"lat": 24.4539, "lon": 54.3773, "label": "195.229.27.82", "popup": "Hop 4: 195.229.27.82<br>Abu Dhabi, United Arab Emirates<br>ISP: Emirates Telecommunications Corporation", "type": "hop"}, {"lat": 6.91833, "lon": 79.8627, "label": "125.214.191.39", "popup": "Hop 5: 125.214.191.39<br>Colombo, Sri Lanka<br>ISP: Dialog Axiata Plc", "type": "hop"}, {"lat": 6.0336, "lon": 80.2197, "label": "192.248.48.250", "popup": "Hop 6: 192.248.48.250<br>Galle, Sri Lanka<br>ISP: Lanka Education and Research Network", "type": "hop"}, {"lat": 6.0336, "lon": 80.2197, "label": "www.ruh.ac.lk", "popup": "Galle (Destination)<br>www.ruh.ac.lk", "type": "end"}];
+        var map = L.map('map').setView([20, 0], 2);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors',
+            maxZoom: 18
+        }).addTo(map);
+
+        var colors = { start: '#2ecc71', hop: '#3498db', end: '#e74c3c' };
+        var sizes = { start: 10, hop: 7, end: 10 };
+        var routeCoords = [];
+
+        points.forEach(function(p) {
+            routeCoords.push([p.lat, p.lon]);
+            L.circleMarker([p.lat, p.lon], {
+                radius: sizes[p.type], fillColor: colors[p.type],
+                color: '#fff', weight: 2, opacity: 1, fillOpacity: 0.9
+            }).addTo(map).bindPopup('<b>' + p.label + '</b><br>' + p.popup);
+        });
+
+        L.polyline(routeCoords, {
+            color: '#3498db', weight: 3, opacity: 0.7, dashArray: '10, 5'
+        }).addTo(map);
+
+        if (routeCoords.length > 1) {
+            map.fitBounds(routeCoords, { padding: [50, 50] });
+        }
+    </script>
+</body>
+</html>
