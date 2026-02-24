@@ -122,51 +122,30 @@ while IFS= read -r domain || [ -n "$domain" ]; do
     if [ "${#hop_ips[@]}" -gt 0 ]; then
         batch_result=$(curl -s -X POST "http://ip-api.com/batch?fields=query,city,country,isp,lat,lon" -H "Content-Type: application/json" -d "$batch_json")
 
+        # Parse batch JSON reliably using Python
+        parsed_lines=$(echo "$batch_result" | python3 parse_batch.py "${hop_ips[@]}")
+
         echo ""
         echo "Physical Path Mapping:"
         echo "-----------------------------"
         echo "Hop | IP Address       | City             | Country          | ISP"
         echo "----|------------------|------------------|------------------|--------------------"
 
-        # Collect coordinates for map visualization
+        # Build map JSON using Python-parsed data
         map_json="[{\"lat\":$MY_LAT,\"lon\":$MY_LON,\"label\":\"Origin\",\"popup\":\"$MY_CITY (Origin)\",\"type\":\"start\"}"
 
         hop_count=1
-        for ip in "${hop_ips[@]}"; do
-            # Parse this IP's data from the batch result
-            ip_city=$(echo "$batch_result" | grep -oP "\"query\":\"$ip\"[^}]*\"city\":\"\\K[^\"]+")
-            ip_country=$(echo "$batch_result" | grep -oP "\"query\":\"$ip\"[^}]*\"country\":\"\\K[^\"]+")
-            ip_isp=$(echo "$batch_result" | grep -oP "\"query\":\"$ip\"[^}]*\"isp\":\"\\K[^\"]+")
-            ip_lat=$(echo "$batch_result" | grep -oP "\"query\":\"$ip\"[^}]*\"lat\":\\K[0-9.\\-]+")
-            ip_lon=$(echo "$batch_result" | grep -oP "\"query\":\"$ip\"[^}]*\"lon\":\\K[0-9.\\-]+")
-
-            # If grep order varies, try reverse match
-            if [[ -z "$ip_city" ]]; then
-                ip_city=$(echo "$batch_result" | grep -oP "\"city\":\"[^\"]*\"[^}]*\"query\":\"$ip\"" | grep -oP '"city":"\K[^"]+')
-            fi
-            if [[ -z "$ip_country" ]]; then
-                ip_country=$(echo "$batch_result" | grep -oP "\"country\":\"[^\"]*\"[^}]*\"query\":\"$ip\"" | grep -oP '"country":"\K[^"]+')
-            fi
-            if [[ -z "$ip_isp" ]]; then
-                ip_isp=$(echo "$batch_result" | grep -oP "\"isp\":\"[^\"]*\"[^}]*\"query\":\"$ip\"" | grep -oP '"isp":"\K[^"]+')
-            fi
-            if [[ -z "$ip_lat" ]]; then
-                ip_lat=$(echo "$batch_result" | grep -oP "\"lat\":[0-9.\-]*[^}]*\"query\":\"$ip\"" | grep -oP '"lat":\K[0-9.\-]+')
-            fi
-            if [[ -z "$ip_lon" ]]; then
-                ip_lon=$(echo "$batch_result" | grep -oP "\"lon\":[0-9.\-]*[^}]*\"query\":\"$ip\"" | grep -oP '"lon":\K[0-9.\-]+')
-            fi
-
+        while IFS='|' read -r ip ip_city ip_country ip_isp ip_lat ip_lon; do
             printf "%-4s| %-17s| %-17s| %-17s| %s\n" \
-                "$hop_count" "$ip" "${ip_city:-Unknown}" "${ip_country:-Unknown}" "${ip_isp:-Unknown}"
+                "$hop_count" "$ip" "$ip_city" "$ip_country" "$ip_isp"
 
             # Add to map data if we have coordinates
             if [[ -n "$ip_lat" && -n "$ip_lon" ]]; then
-                map_json+=",{\"lat\":$ip_lat,\"lon\":$ip_lon,\"label\":\"$ip\",\"popup\":\"Hop $hop_count: $ip<br>${ip_city:-Unknown}, ${ip_country:-Unknown}<br>ISP: ${ip_isp:-Unknown}\",\"type\":\"hop\"}"
+                map_json+=",{\"lat\":$ip_lat,\"lon\":$ip_lon,\"label\":\"$ip\",\"popup\":\"Hop $hop_count: $ip<br>$ip_city, $ip_country<br>ISP: $ip_isp\",\"type\":\"hop\"}"
             fi
 
             hop_count=$((hop_count + 1))
-        done
+        done <<< "$parsed_lines"
 
         # Add destination point
         map_json+=",{\"lat\":$DEST_LAT,\"lon\":$DEST_LON,\"label\":\"$domain\",\"popup\":\"$CITY (Destination)<br>$domain\",\"type\":\"end\"}]"

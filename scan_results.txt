@@ -286,4 +286,135 @@ traceroute to www.uoregon.edu (23.185.0.3), 30 hops max
  14   *  *  * 
  15   *  *  * 
  16   *  *  * 
- 17   *  * 
+ 17   *  *  * 
+ 18   *  *  * 
+ 19   *  *  * 
+ 20   *  *  * 
+ 21   *  *  * 
+ 22   *  *  * 
+ 23   *  *  * 
+ 24   *  *  * 
+ 25   *  *  * 
+ 26   *  *  * 
+ 27   *  *  * 
+ 28   *  *  * 
+ 29   *  *  * 
+ 30   *  *  * 
+
+Physical Path Mapping:
+-----------------------------
+Hop | IP Address       | City             | Country          | ISP
+----|------------------|------------------|------------------|--------------------
+1   | 23.185.0.3       | San Francisco    | United States    | Fastly, Inc.
+
+Route: Colombo --> [1 hops] --> San Francisco
+   Route map saved to: route_maps/route_www.uoregon.edu.html
+
+-----------------------------
+Finished scanning www.uoregon.edu.
+Waiting before next scan...
+-----------------------------
+Scanning www.keio.ac.jp...
+-----------------------------
+
+Resolved www.keio.ac.jp -> 23.213.43.200
+Location: Singapore (1.35208, 103.82)
+-----------------------------
+
+Pinging www.keio.ac.jp...
+Ping successful!
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 65.884/131.874/167.798/41.297 ms
+-----------------------------
+
+   [+] Origin:          Colombo
+   [+] Destination:     Singapore, Singapore
+   [+] Coordinates:     1.35208, 103.82
+   [+] Distance:        2729.12 km
+   ------------------------------------------------
+   [+] Theoretical RTT: 27.29 ms
+   [+] Measured Ping:   131.87 ms
+Running traceroute to www.keio.ac.jp...
+traceroute to e100342.dscb.akamaiedge.net (23.213.43.203), 30 hops max
+  1   172.24.153.224  4.092ms  4.702ms  4.601ms 
+  2   *  *  * 
+  3   172.19.92.201  91.081ms  51.659ms  26.099ms 
+  4   *  *  * 
+  5   172.22.65.90  144.747ms  28.164ms  23.164ms 
+  6   27.111.230.148  263.690ms  258.254ms  307.026ms 
+  7   192.168.224.7  306.378ms  308.561ms  244.791ms 
+  8   192.168.226.135  167.353ms  164.592ms  166.940ms 
+  9   23.213.43.203  271.766ms  314.830ms  305.066ms 
+
+Physical Path Mapping:
+-----------------------------
+Hop | IP Address       | City             | Country          | ISP
+----|------------------|------------------|------------------|--------------------
+1   | 23.213.43.203    | Singapore
+Singapore| Singapore
+Singapore| Akamai International B.V.
+Akamai International B.V.
+2   | 27.111.230.148   | Orchard Hills    | Australia        | Equinix Singapore Pte Ltd
+3   | 23.213.43.203    | Singapore
+Singapore| Singapore
+Singapore| Akamai International B.V.
+Akamai International B.V.
+
+Route: Colombo --> [3 hops] --> Singapore
+Traceback (most recent call last):
+  File "/home/sasith/Documents/network/gen_map.py", line 125, in <module>
+    hops = json.loads(sys.argv[5])
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Expecting ',' delimiter: line 2 column 1 (char 104)
+
+-----------------------------
+Finished scanning www.keio.ac.jp.
+Waiting before next scan...
+-----------------------------
+Scanning Japan.go.jp...
+-----------------------------
+
+Resolved Japan.go.jp -> 65.8.76.95
+Location: Singapore (1.35208, 103.82)
+-----------------------------
+
+Pinging Japan.go.jp...
+Ping successful!
+4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+rtt min/avg/max/mdev = 70.878/77.062/85.007/5.291 ms
+-----------------------------
+
+   [+] Origin:          Colombo
+   [+] Destination:     Singapore, Singapore
+   [+] Coordinates:     1.35208, 103.82
+   [+] Distance:        2729.12 km
+   ------------------------------------------------
+   [+] Theoretical RTT: 27.29 ms
+   [+] Measured Ping:   77.06 ms
+Running traceroute to Japan.go.jp...
+traceroute to Japan.go.jp (65.8.76.95), 30 hops max
+  1   172.24.153.224  3.695ms  3.574ms  4.551ms 
+  2   *  *  * 
+  3   172.19.92.201  40.558ms  23.106ms  22.867ms 
+  4   *  *  * 
+  5   172.22.65.90  147.801ms  26.851ms  21.639ms 
+  6   27.111.228.87  60.116ms  167.408ms  173.067ms 
+  7   *  *  * 
+  8   *  *  * 
+  9   *  *  * 
+ 10   *  *  * 
+ 11   *  *  * 
+ 12   *  *  * 
+ 13   *  *  * 
+ 14   *  *  * 
+ 15   *  *  * 
+ 16   * 
