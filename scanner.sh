@@ -1,8 +1,32 @@
 #! /bin/bash
 INPUT_FILE="domains.txt"
-LOG_FILE="scan_results.txt"
+DEFAULT_LOG="scan_results.txt"
 
-exec > >(tee -a "$LOG_FILE") 2>&1
+# Ask user for output file preference
+if [ -f "$DEFAULT_LOG" ]; then
+    echo "Previous results file found: $DEFAULT_LOG"
+    echo "  1) Overwrite it"
+    echo "  2) Enter a custom name"
+    read -rp "Choose [1/2] (default: 1): " choice
+    case "$choice" in
+        2)
+            read -rp "Enter results filename: " custom_name
+            custom_name="${custom_name:=$DEFAULT_LOG}"
+            # Add .txt extension if missing
+            [[ "$custom_name" != *.txt ]] && custom_name="${custom_name}.txt"
+            LOG_FILE="$custom_name"
+            ;;
+        *)
+            LOG_FILE="$DEFAULT_LOG"
+            ;;
+    esac
+else
+    LOG_FILE="$DEFAULT_LOG"
+fi
+
+# Overwrite (not append) the results file
+: > "$LOG_FILE"
+exec > >(tee "$LOG_FILE") 2>&1
 
 echo "Networking Practical Session 1"
 echo "-----------------------------"
