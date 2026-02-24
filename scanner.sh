@@ -29,6 +29,9 @@ if ! command -v tcpdump &> /dev/null; then
 fi
 
 
+# Prompt for sudo password upfront so background commands don't block
+sudo -v || { echo "Error: sudo access required."; exit 1; }
+
 # Create output directories
 mkdir -p route_maps
 mkdir -p captures
