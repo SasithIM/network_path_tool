@@ -94,7 +94,8 @@ while IFS= read -r domain || [ -n "$domain" ]; do
     ping_avg=$(echo "$ping_output" | grep 'rtt' | cut -d '/' -f 5)
 
     python3 net_calc.py "$ping_avg" "$MY_LOC_JSON" "$LOC_JSON"
-
+    
+    echo ""
     echo "Running traceroute to $domain..."
     # Stream output live while also saving to temp file for parsing
     traceroute_tmp=$(mktemp)

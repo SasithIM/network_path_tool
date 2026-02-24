@@ -219,4 +219,71 @@ traceroute to alpha.ruh.ac.lk (192.248.48.3), 30 hops max
  18   *  *  * 
  19   *  *  * 
  20   *  *  * 
- 21   *  * 
+ 21   *  *  * 
+ 22   *  *  * 
+ 23   *  *  * 
+ 24   *  *  * 
+ 25   *  *  * 
+ 26   *  *  * 
+ 27   *  *  * 
+ 28   *  *  * 
+ 29   *  *  * 
+ 30   *  *  * 
+
+Physical Path Mapping:
+-----------------------------
+Hop | IP Address       | City             | Country          | ISP
+----|------------------|------------------|------------------|--------------------
+1   | 192.248.48.3     | Galle            | Sri Lanka        | Lanka Education and Research Network
+2   | 27.111.228.17    | Orchard Hills    | Australia        | Equinix Singapore Pte Ltd
+3   | 5.195.70.165     | Dubai            | United Arab Emirates| Emirates Telecommunications Corporation
+4   | 195.229.27.82    | Abu Dhabi        | United Arab Emirates| Emirates Telecommunications Corporation
+5   | 125.214.191.39   | Colombo          | Sri Lanka        | Dialog Axiata Plc
+6   | 192.248.48.250   | Galle            | Sri Lanka        | Lanka Education and Research Network
+
+Route: Colombo --> [6 hops] --> Galle
+   Route map saved to: route_maps/route_www.ruh.ac.lk.html
+
+-----------------------------
+Finished scanning www.ruh.ac.lk.
+Waiting before next scan...
+-----------------------------
+Scanning www.uoregon.edu...
+-----------------------------
+
+Resolved www.uoregon.edu -> 23.185.0.3
+Location: San Francisco (37.7922, -122.406)
+-----------------------------
+
+Pinging www.uoregon.edu...
+Ping successful!
+4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+rtt min/avg/max/mdev = 84.840/131.319/170.556/30.530 ms
+-----------------------------
+
+   [+] Origin:          Colombo
+   [+] Destination:     San Francisco, United States
+   [+] Coordinates:     37.7922, -122.406
+   [+] Distance:        14532.21 km
+   ------------------------------------------------
+   [+] Theoretical RTT: 145.32 ms
+   [+] Measured Ping:   131.32 ms
+Running traceroute to www.uoregon.edu...
+traceroute to www.uoregon.edu (23.185.0.3), 30 hops max
+  1   172.24.153.224  4.776ms  4.502ms  4.841ms 
+  2   *  *  * 
+  3   172.19.92.201  152.647ms  25.564ms  28.626ms 
+  4   *  *  * 
+  5   172.22.65.90  90.432ms  26.067ms  25.035ms 
+  6   *  *  * 
+  7   *  *  * 
+  8   *  *  * 
+  9   *  *  * 
+ 10   *  *  * 
+ 11   *  *  * 
+ 12   *  *  * 
+ 13   *  *  * 
+ 14   *  *  * 
+ 15   *  *  * 
+ 16   *  *  * 
+ 17   *  * 
