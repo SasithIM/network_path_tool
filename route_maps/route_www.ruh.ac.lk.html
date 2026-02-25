@@ -25,9 +25,9 @@
     <div id="map"></div>
     <div class="info-panel">
         <h3>Route: www.ruh.ac.lk</h3>
-        <p><strong>From:</strong> Pannipitiya</p>
+        <p><strong>From:</strong> Maharagama</p>
         <p><strong>To:</strong> Galle</p>
-        <p><strong>Hops:</strong> 5</p>
+        <p><strong>Hops:</strong> 2</p>
         <div class="legend">
             <div class="legend-item"><div class="legend-dot" style="background:#2ecc71;"></div> Origin</div>
             <div class="legend-item"><div class="legend-dot" style="background:#3498db;"></div> Router Hop</div>
@@ -35,7 +35,7 @@
         </div>
     </div>
     <script>
-        var points = [{"lat": 6.8491, "lon": 79.9396, "label": "Origin", "popup": "Pannipitiya (Origin)", "type": "start"}, {"lat": 6.9318, "lon": 79.8863, "label": "103.21.167.2", "popup": "Hop 1: 103.21.167.2<br>Colombo, Sri Lanka<br>ISP: Hutchison Telecommunications Lanka (Private) Limited", "type": "hop"}, {"lat": 19.0336, "lon": 73.0118, "label": "103.27.170.225", "popup": "Hop 2: 103.27.170.225<br>Navi Mumbai, India<br>ISP: INTERWIRE", "type": "hop"}, {"lat": 6.9318, "lon": 79.8863, "label": "223.224.19.3", "popup": "Hop 3: 223.224.19.3<br>Colombo, Sri Lanka<br>ISP: Airtel ISP", "type": "hop"}, {"lat": 6.91833, "lon": 79.8627, "label": "125.214.191.39", "popup": "Hop 4: 125.214.191.39<br>Colombo, Sri Lanka<br>ISP: Dialog Axiata Plc", "type": "hop"}, {"lat": 6.0336, "lon": 80.2197, "label": "192.248.48.250", "popup": "Hop 5: 192.248.48.250<br>Galle, Sri Lanka<br>ISP: Lanka Education and Research Network", "type": "hop"}, {"lat": 6.0336, "lon": 80.2197, "label": "www.ruh.ac.lk", "popup": "Galle (Destination)<br>www.ruh.ac.lk", "type": "end"}];
+        var points = [{"lat": 6.8457, "lon": 79.9187, "label": "Origin", "popup": "Maharagama (Origin)", "type": "start"}, {"lat": 6.8457, "lon": 79.9187, "label": "192.248.8.125", "popup": "Hop 1: 192.248.8.125<br>Maharagama, Sri Lanka<br>ISP: Lanka Education and Research Network", "type": "hop"}, {"lat": 6.0336, "lon": 80.2197, "label": "192.248.48.250", "popup": "Hop 2: 192.248.48.250<br>Galle, Sri Lanka<br>ISP: Lanka Education and Research Network", "type": "hop"}, {"lat": 6.0336, "lon": 80.2197, "label": "www.ruh.ac.lk", "popup": "Galle (Destination)<br>www.ruh.ac.lk", "type": "end"}];
         var map = L.map('map').setView([20, 0], 2);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; OpenStreetMap contributors',
