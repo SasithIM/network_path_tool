@@ -1,4 +1,11 @@
 scan_results.txt
-route_maps/
 captures/
 report.md
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+*:Zone.Identifier

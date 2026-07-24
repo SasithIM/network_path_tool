@@ -18,15 +18,17 @@ It automates network analysis across multiple domains: geolocating servers, meas
 
 ```
 scanner.sh        # Main script — orchestrates the full scan
+scanner.py        # Python scanner implementation
 net_calc.py       # Haversine distance & RTT calculator
 gen_map.py        # Leaflet.js route map generator
 parse_batch.py    # Batch API JSON parser
 domains.txt       # Input file — list of domains to scan
-.gitignore        # Ignores output files
+route_maps/       # Sample interactive HTML route map
+results/          # Sample benchmark artifacts (flent .gz logs + plots)
+.gitignore        # Ignores generated output files
 
-# Generated outputs (git-ignored):
+# Generated at runtime (git-ignored):
 scan_results.txt  # Full scan log
-route_maps/       # Interactive HTML route maps (one per domain)
 captures/         # Packet capture (.pcap) files
 ```
 
